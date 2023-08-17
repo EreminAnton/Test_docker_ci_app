@@ -15,7 +15,6 @@ RUN apt-get update && \
 # Copy just the pyproject.toml and poetry.lock files to install dependencies
 COPY pyproject.toml poetry.lock /
 
-# Use secret for private repo and add the dependency
 RUN --mount=type=secret,id=GH_PAT \
     poetry add git+https://$(cat /run/secrets/GH_PAT)@github.com//EreminAnton/test_app_for_docker_python_poetry.git#main
 
