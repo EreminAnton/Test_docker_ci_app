@@ -17,7 +17,7 @@ COPY pyproject.toml poetry.lock /
 
 # Use secret for private repo and add the dependency
 RUN --mount=type=secret,id=GH_PAT \
-    /venv/bin/poetry add git+https://$(cat /run/secrets/GH_PAT)@github.com/company/repo.git#main
+    poetry add git+https://$(cat /run/secrets/GH_PAT)@github.com//EreminAnton/test_app_for_docker_python_poetry.git#main
 
 # Set up the virtualenv and install dependencies
 RUN poetry config virtualenvs.create true && \
