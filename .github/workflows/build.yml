@@ -37,7 +37,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/EreminAnton/test_app_for_docker_python_poetry:latest
+        tags: ghcr.io/ereminanton/test_app_for_docker_python_poetry:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
         secrets: |
