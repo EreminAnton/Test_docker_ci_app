@@ -17,7 +17,8 @@ RUN poetry config virtualenvs.create true && \
 
 # Clone the repo and add it as a dependency
 RUN --mount=type=secret,id=GIT_TOKEN git clone https://$(cat /run/secrets/GIT_TOKEN):x-oauth-basic@github.com/EreminAnton/test_app_for_docker_python_poetry.git 
-RUN poetry add file:///test_app_for_docker_python_poetry
+RUN poetry add file:/test_app_for_docker_python_poetry
+
 
 # Install other project dependencies
 RUN poetry install
