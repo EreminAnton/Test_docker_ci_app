@@ -17,10 +17,10 @@ COPY pyproject.toml poetry.lock /
 
 RUN 
 # Set up the virtualenv and install dependencies
-RUN poetry config virtualenvs.create true && \
+RUN --mount=type=secret,id=GIT_TOKEN \
+    poetry config virtualenvs.create true && \
     poetry config virtualenvs.in-project true && \
-    --mount=type=secret,id=GIT_TOKEN \
-    poetry add git+https://$(cat /run/secrets/GIT_TOKEN)@github.com/EreminAnton/test_app_for_docker_python_poetry.git#main \
+    poetry add git+https://$(cat /run/secrets/GIT_TOKEN)@github.com/EreminAnton/test_app_for_docker_python_poetry.git#main && \
     poetry install
 
 # Copy the rest of the project over and build the app
