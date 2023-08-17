@@ -15,6 +15,10 @@ RUN apt-get update && \
 # Copy just the pyproject.toml and poetry.lock files to install dependencies
 COPY pyproject.toml poetry.lock /
 
+# Use secret for private repo and add the dependency
+RUN --mount=type=secret,id=GH_PAT \
+    /venv/bin/poetry add git+https://$(cat /run/secrets/GH_PAT)@github.com/company/repo.git#main
+
 # Set up the virtualenv and install dependencies
 RUN poetry config virtualenvs.create true && \
     poetry config virtualenvs.in-project true && \
