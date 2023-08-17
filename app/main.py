@@ -1,3 +1,3 @@
-from test_app_for_docker_python_poetry import app_cli
+from app_cli import app
 
 app()
