@@ -32,9 +32,12 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: user/repo:latest
-        secrets:
-          GH_PAT: ${{ secrets.GH_PAT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
-
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
+          
+          
+          
+          
 # ... (rest of your CI file)
