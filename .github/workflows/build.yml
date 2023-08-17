@@ -35,13 +35,7 @@ jobs:
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
         secrets: |
-          GH_PAT=${{ secrets.GH_PAT }}
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-            
-            
-          
-          
-          
-          
+          GIT_TOKEN=${{ secrets.GIT_TOKEN }}
+      
+
 # ... (rest of your CI file)
