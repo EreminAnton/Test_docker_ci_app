@@ -37,7 +37,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io//ereminAnton/test_docker_ci_app:latest
+        tags: ghcr.io//ereminanton/test_docker_ci_app:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
         secrets: |
